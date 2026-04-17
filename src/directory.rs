@@ -18,7 +18,7 @@ pub enum Directory {
 impl Directory {
     pub fn from_read_dir(read_dir: ReadDir, read_files: bool) -> Result<Self, Box<dyn Error>> {
         let mut directory = Self::Folder {
-            name: String::from("/"),
+            name: String::new(),
             children: Vec::new()
         };
 
