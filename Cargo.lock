@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "directory-tree"
+name = "dir-tree-obj"
 version = "0.1.0"

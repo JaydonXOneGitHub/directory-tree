@@ -1,5 +1,5 @@
 [package]
-name = "directory-tree"
+name = "dir-tree-obj"
 description = "A basic tree-like representation of a specific directory."
 license-file = "LICENSE.txt"
 version = "0.1.0"
