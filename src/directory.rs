@@ -84,7 +84,9 @@ impl Directory {
                     let mut dir = res.unwrap();
                     match &mut dir {
                         Self::Folder { name, children: _ } => {
-                            *name = path.as_os_str().to_str().unwrap().into();
+                            *name = path.file_name()
+                                .expect("Path terminates in \"..\"!")
+                                .to_str().unwrap().into();
                         },
                         _ => {}
                     }

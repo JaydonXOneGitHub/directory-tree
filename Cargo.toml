@@ -2,7 +2,7 @@
 name = "dir-tree-obj"
 description = "A basic tree-like representation of a specific directory."
 license-file = "LICENSE.txt"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2024"
 
 [dependencies]
