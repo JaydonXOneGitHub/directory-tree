@@ -66,7 +66,7 @@ impl Directory {
                 }
             }
             else if path.is_dir() {
-                let res = std::fs::read_dir(path);
+                let res = std::fs::read_dir(&path);
 
                 if let Result::Err(err) = res {
                     return Result::Err(Box::from(err));
@@ -81,7 +81,14 @@ impl Directory {
                 }
 
                 if let Self::Folder { name: _, children } = &mut directory {
-                    children.push(res.unwrap());
+                    let mut dir = res.unwrap();
+                    match &mut dir {
+                        Self::Folder { name, children: _ } => {
+                            *name = path.as_os_str().to_str().unwrap().into();
+                        },
+                        _ => {}
+                    }
+                    children.push(dir);
                 }
             }
         }
